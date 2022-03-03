@@ -26,6 +26,9 @@ jobs:
 
       - name: Prepare publish
         if: github.event_name == 'release'
+        env:
+          GZIP: -9
+          ZSTD_CLEVEL: 19
         run: |
           mv target crossosx
           tar -zcvf crossosx.tar.gz crossosx
